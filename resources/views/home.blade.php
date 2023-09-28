@@ -47,14 +47,14 @@
                                 <div class="col-md-2 col-xl-4">
                                   <div class="card bg-c-blue motion-safe:hover:scale-[1.01] order-card">
                                       <div class="card-block">
-                                          <div class="grid grid-cols-2 items-center"> <!-- Utilizamos una cuadrícula para alinear el texto y el ícono -->
+                                         <a href="{{ route('soportes.index') }}"> <div class="grid grid-cols-2 items-center"> <!-- Utilizamos una cuadrícula para alinear el texto y el ícono -->
                                               <div class="col-span-1">
                                                   <h5 class="text-center text-black dark:text-white font-semibold">Soporte Técnico</h5>
                                               </div>
                                               <div class="col-span-1">
                                                   <h2 class="text-right"><i class="bi bi-caret-right-fill text-black"></i><span></span></h2>
                                               </div>
-                                          </div>
+                                          </div></a>
                                       </div>
                                   </div>
                               </div>

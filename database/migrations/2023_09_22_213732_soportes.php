@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('fecha');
             $table->string('nombre_cliente');
             $table->string('Seguimiento');
-            $table->string('fecha_cierre');
+            $table->string('fecha_cierre')->nullable(); // Permite valores nulos
             $table->string('comentarios');
             $table->bigInteger('user_id')->unsigned()->nullable(); //select
             $table->bigInteger('estado_id')->unsigned()->nullable(); //select

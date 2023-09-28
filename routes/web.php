@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//agregamos los controladores
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\SoporteController;
+use App\Http\Controllers\PrioridadController;
+use App\Http\Controllers\EstadoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +26,14 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('roles', RolController::class);
+    Route::resource('usuarios', UsuarioController::class,);
+    //Rutas para area de Soporte
+    Route::resource('soportes', SoporteController::class);
+    Route::resource('prioridads', PrioridadController::class);
+    Route::resource('estados', EstadoController::class);
+    //Ruta para 
+
+});
