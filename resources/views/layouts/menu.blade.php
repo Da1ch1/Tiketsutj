@@ -23,7 +23,7 @@
 </li>
 
 <li class="side-menus {{ Request::is('clientepolizas') ? 'active' : '' }}">
-    <a class="nav-link" href="/clientepolizas">
+    <a class="nav-link" href="/espacios">
         <i class="bi bi-person-workspace" style="font-size: 1.2rem;"></i><span>Espacios</span>
     </a>
 </li>

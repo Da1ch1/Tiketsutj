@@ -1,23 +1,26 @@
 @extends('layouts.app')
 
-@section('title','Estado')
+@section('template_title')
+    {{ __('Update') }} Espacio
+@endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="row">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Crear') }} Estado</span>
+                        <span class="card-title">{{ __('Update') }} Espacio</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('estados.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('espacios.update', $espacio->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('estado.form')
+                            @include('espacio.form')
 
                         </form>
                     </div>

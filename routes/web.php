@@ -8,6 +8,8 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\PrioridadController;
 use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\TipoController;
+use App\Http\Controllers\EspacioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('soportes', SoporteController::class);
     Route::resource('prioridads', PrioridadController::class);
     Route::resource('estados', EstadoController::class);
-    //Ruta para 
+    //Ruta para área de espacios
+    Route::resource('tipos', TipoController::class);
+    Route::resource('espacios', EspacioController::class);
 
 });

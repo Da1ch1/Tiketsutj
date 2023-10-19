@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title','Estado')
+@section('template_title')
+    {{ __('Create') }} Espacio
+@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -11,13 +13,13 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Crear') }} Estado</span>
+                        <span class="card-title">{{ __('Create') }} Espacio</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('estados.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('espacios.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('estado.form')
+                            @include('espacio.form')
 
                         </form>
                     </div>
