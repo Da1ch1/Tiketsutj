@@ -14,8 +14,8 @@
                 <div class="card">
                     <div class="card-body">
                         
-                        <div class="float-left mb-3 " style="margin-left: 25px">
-                            <a href="{{ route('soportes.create') }}" class="btn btn-dark btn-sm float-right"  data-placement="left">
+                        <div class="float-rigth  " style="margin-left: 25px">
+                            <a href="{{ route('soportes.create') }}" class="btn btn-dark btn-sm float-right"  data-placement="right">
                             {{ __('Crear Nuevo') }}
                             </a>
                         </div>
@@ -30,7 +30,7 @@
                                 </button>
                             </div>
                         @endif
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover  nowrap"   id="example">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -45,7 +45,7 @@
 										<th>Atendio</th>
 										<th>Estado</th>
 										<th>Prioridad</th>
-
+                                        <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,7 @@
 											<td>{{ $soporte->user->name ?? 'Usuario eliminado' }}</td>
 											<td>{{ $soporte->estado->estado}}</td>
 											<td>{{ $soporte->prioridad->tipo_prioridad }}</td>
-
+                                            <td></td>
                                             <td>
                                                 <form action="{{ route('soportes.destroy',$soporte->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('soportes.show',$soporte->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>

@@ -60,6 +60,9 @@
 <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
+
+    <!-- Datatable-->
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.6/b-2.4.2/b-html5-2.4.2/datatables.min.css" rel="stylesheet">
     @yield('page_css')
 
     @yield('css')
@@ -151,4 +154,72 @@
         });
 });
 </script>
+<style>
+    /* Estilo para el borde del campo de búsqueda en DataTables */
+    .dataTables_filter input[type="search"] {
+        border: 2px solid green; 
+        border-radius: 6px;
+        transition: border-color 0.2s; /* Transición suave para el cambio de color */
+    }
+    /* Estilo para el campo de búsqueda enfocado (al hacer clic) */
+    .dataTables_filter input[type="search"]:focus {
+        border: 2px solid green; /* Mantén el borde verde cuando está enfocado */
+        outline: none; /* Elimina el contorno predeterminado (por defecto) al hacer clic */
+    }
+
+</style>
+<script>
+$(document).ready(function () {
+    var table = $('#example').DataTable({
+        dom: 'Bft',
+        buttons: [
+            {
+                extend: 'excel',
+                text: 'Excel',
+                className: 'btn bg-success  btn-success',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11], // Excluye la columna de botones (columna 10)
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                text: 'PDF',
+                className: 'btn bg-danger  btn-danger',
+                filename: function() {
+                    return "MyPDF"      
+                },      
+                title: function() {
+                    var searchString = table.search();        
+                    return searchString.length? "Search: " + searchString : "Oso"
+                },
+                exportOptions: {
+                
+                columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,  11, ],
+                                    alignment: 'center',
+                                    className: "dt-body-center text-center",
+                },
+     
+            }                                
+        ],
+        language: {
+            search: "Buscar:",
+        }
+    });
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/b-2.4.2/b-html5-2.4.2/datatables.min.js"></script>
+ <!-- Para estilos de Ecxel-->
+ <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.2.0/js/buttons.html5.styles.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.2.0/js/buttons.html5.styles.templates.min.js"></script>
+ <!--para pdf-->
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+ <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+ <script src="https://cdn.datatables.net/buttons/2.3.4/js/dataTables.buttons.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+ <script src="https://cdn.datatables.net/buttons/2.3.4/js/buttons.html5.min.js"></script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 </html>
